@@ -177,6 +177,9 @@ class FluidXml implements FluidInterface
                 return "{$header}{$html}";
         }
         
+        /**
+         * $complexType accepts: array, object
+         */
         function exportTo($complexType, $strip = false)
         {
                 $xml = $this->xml($strip);
@@ -188,6 +191,8 @@ class FluidXml implements FluidInterface
 
         protected function xmlUnserializer($complexType)
         {
+                // Options
+                // https://pear.php.net/manual/en/package.xml.xml-serializer.xml-unserializer.options.php
                 $options = array(
                     'parseAttributes' => true,
                     'prependAttributes' => '@',
